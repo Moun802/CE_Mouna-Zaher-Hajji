@@ -23,7 +23,9 @@
 - **Description:** Removable memory card where the heart rate data is logged.
 
 ## Explanations for the logic level converter
+<p align="justify">
 When connecting the MAX30102 sensor to the Arduino Uno, a logic level converter is needed because they don't operate with the same voltage. The Arduino Uno uses 5V logic, meaning that its pins send signals at 5V. In contrast, the MAX30102 operates on a 3.3V logic, which cannot tolerate 5V signals. While the Arduino does have a 3.3V power output, this only provides power, it does not change the voltage leve of the data signals, which remain at 5V. This is an issue, because we are working with an $I^2C$ communication protocol, which is how the Arduino and the sensor exchange data. $I^2C$ uses two lines: SDA (data) and SCL(clock). If the Arduino's 5V signals are being sent directly to the sensor's 3.3V SDA and SCL pins, it can damage the sensor. A bidirectional logic level converter solves this by acting as an intermediary, translating the 5V signals to 3.3V and vice-versa. It is bidirectional because the $I^2C$ protocal works both ways, both the Arduino and the sensor must be able to send and receive data on the same lines. 
+</p>
 
 The following image shows a logic level converter like the one used in this project. One side of the converter is for high-voltage, this is the side directy connected to the Arduino. The other side, the low-voltage, is connected to the sensor.
 ![image](https://github.com/user-attachments/assets/4d74c182-f520-446f-8f4f-3591454fbcdd)
