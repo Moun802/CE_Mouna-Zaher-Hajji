@@ -1,8 +1,8 @@
 # Hardware Components for MAX30102 Heartbeat Sensor Project
 
 ## 1. MAX30102 Sensor 
-- **Description:** Measures heart rate and oxygen saturation using infrared and red LEDs. Communicates via I2C and works with 1.8V–3.3V voltage.
-
+- **Overview:** Measures heart rate and oxygen saturation using infrared and red LEDs. Communicates via I2C and works with 1.8V–3.3V voltage.
+- **Description:** This sensor works by being in contact with skin, preferably a thin part of the body, such as a fingertip or an earlobe. Let's see how it works in more detail. The amount of Hemoglobing, an oxygen carrier protein, in our blood varies between heart beats. This protein also absorbs infrared light.  Hence, by sending infrared light into the skin and measuring the amount that is reflected, using a photoreceptor, the sensor can measure the changes in Hemoglobin levels and see a pattern that matches our heart beat. This method of heart-rate measurement is called Photoplethysmography (PPG). This sensor can also measure oxygen saturation by pulse oximetry, a method that used two lights: infrared (880nm) and red light (660nm). This is possible because oxygenated hemoglobin absorbs more infrared light while deoxygenated hemoglobin absorbs more red light. Similar to the heart rate measurement, the sensor sends both wavelengths of light into the skin and compares the amount of red and infrared light absorbed. This allows it to calculate the percentage of hemoglogin that carries oxygen. 
 ## 2. Bidirectional Logic Level Converter
 - **Description:** Safely converts logic signals (electrical signals) between 5V (Arduino) and 3.3V (MAX30102) to prevent damage. *See the last section for more detail*
 
