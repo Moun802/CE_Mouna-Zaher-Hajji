@@ -1,8 +1,8 @@
-# Arduino Project: [Project Name]
+# Arduino Project: Heart-Rate Monitor
 
 ## Project Overview
 
-[Brief description of what your project does and its purpose]
+The goal of this project is to build an object capable of measuring the heart rate by simple contact with a sensor, in order to give a health profile to the user. Beyond this interactive facet of the project, it also aims to collect heart rate data and analyse it in a similar way to current pre-existing medical tools such as the EKG machine. This will be done with the Max30102 sensor, whose description can be found in the HARDWARE.md file.
 
 ## Hardware Components
 
