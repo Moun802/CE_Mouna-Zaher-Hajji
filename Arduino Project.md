@@ -7,9 +7,13 @@ The goal of this project is to build an object capable of measuring the heart ra
 ## Hardware Components
 
 - Arduino Uno/Nano
-- [Component 1]
-- [Component 2]
-- [Additional components...]
+- MAX30102 sensor
+- Bidirectional Logic Level Converter
+- Breadboard and Jumper wires
+- Computer
+- MicroSD Card Module
+- MicroSD Card
+- **More information in HARDWARE.md file**
 
 ## Circuit Diagram
 
@@ -32,11 +36,29 @@ The goal of this project is to build an object capable of measuring the heart ra
 
 - Arduino IDE [version]
 - Libraries:
-  - [Library 1]
-  - [Library 2]
-  - [Additional libraries...]
+  - Wire
+  - MAX30105
+  - math
 
-## Code Explanation
+## Code Explanation (Interactive part)
+
+### Main logic 
+- **Heart rate logic:** Detects peaks in the IR (infrared) signal and calculates the time between peaks to estimate BPM.
+- #### SpO_2 calculation:
+   The amount of absorbed light measured by the sensor fluctuates over time. This is how we can measure the peaks for the heart beat. However, there is a set value of light absorbed, that is not due to the pulse but to components that do not change over time, like tissue, or venous blood. This baseline is called the DC signal, while the pulsig part is called the AC signal and is caused by the hearbeat. 
+  ![image](https://github.com/user-attachments/assets/c123775e-8928-4f3a-9a2a-08b659c497cc)
+  There exists a ratio of ratios between AC signal and DC signal which was shown to directly relate to the amount of blood oxygen. Hence, the code is based on this mathematical relationship:
+  ![Ratio Equation](https://latex.codecogs.com/svg.image?R%20=%20%5Cfrac%7BAC_%7Bred%7D/DC_%7Bred%7D%7D%7BAC_%7BIR%7D/DC_%7BIR%7D%7D)
+
+
+   ![SpO2 Equation](https://latex.codecogs.com/svg.image?SpO_2%20=%20104%20-%2017%20%5Ctimes%20R)
+
+  Where red refers to red light and IR refers to infrared light.
+
+
+
+
+- **Fitness bracket:** Uses the average BPM and the user age and sex to classify cardiovascular fitness
 
 ```arduino
 // Key parts of your code with explanations
@@ -49,7 +71,7 @@ void loop() {
 }
 ```
 
-[Explanation of how the code works, focusing on important functions and logic]
+It is important to note that the void loop is empty because the code only runs for 30 seconds. Hence, there is no need for continuous data collection.
 
 ## Usage Instructions
 
