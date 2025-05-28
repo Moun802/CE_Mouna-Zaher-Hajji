@@ -17,11 +17,16 @@ The goal of this project is to build an object capable of measuring the heart ra
 
 ## Wiring Instructions
 
-| Arduino Pin | Connected To | Description |
-|-------------|--------------|-------------|
-| Pin 2       | [Component]  | [Purpose]   |
-| Pin 3       | [Component]  | [Purpose]   |
-| ...         | ...          | ...         |
+| Arduino Pin | Logic Converter | MAX30102    |Description|
+|-------------|--------------   |-------------|-----------|
+| 3.3V        | LV              | VIN         |Powers MAX30102 via the low-voltage side (3.3V)|
+| 5V          | HV              | ---         |Supplies 5V to high-voltage side of converter. Allows converter to accept the 5V from Arduino|
+| GND         | GND(both sides) | GND         |Common ground connection. Reference point, all the devices must share ground|
+| A4          | HV1             | ---         |Links Arduino's $I^2C$ data line to converter. Transmits data from sensor Arduino to sensor |
+| A5          | HV2             | ---         |Links Arduino's $I^2C$ clock line to converter. Synchronizes the timing of data transfer between Arduino and sensor|
+| 2           | ---             | INT         |Optional interrup signal. Alerts Arduino when a new sample of data is ready|
+| ---         | LV2             | SCL         |Links converter's $I^2C$ data line to sensor. MAX30102 receives data requests via this line |
+| ---         | LV1             | SDA         |Links converter's $I^2C$ clock line to sensor. Guides the sensor in the timing of data transfer|
 
 ## Software Requirements
 
