@@ -40,7 +40,7 @@ The goal of this project is to build an object capable of measuring the heart ra
   - MAX30105
   - math
 
-## Code Explanation (Interactive part)
+## Code Explanation (Arduino Version)
 
 ### Main logic 
 - **Heart rate logic:** Detects peaks in the IR (infrared) signal and calculates the time between peaks to estimate BPM.
@@ -74,7 +74,7 @@ The goal of this project is to build an object capable of measuring the heart ra
     
 
 
-- **Fitness bracket:** Uses the average BPM and the user age and sex to classify cardiovascular fitness
+-**Fitness bracket:** Uses the average BPM and the user age and sex to classify cardiovascular fitness
 
 ### Code
 Before the setup. This is to set our constants and important values
@@ -264,6 +264,10 @@ char* determineFitnessBracket(int avgHR, int age, char sex) { //provides the fit
 ```
 
 It is important to note that the void loop is empty because the code only runs for 30 seconds. Hence, there is no need for continuous data collection.
+
+## Code explanation (Python version)
+
+The drawback with using Arduino directly is that the funtion used to calculate the BPM, which relies on finding peaks, is not very accurate. Python has a library, called **spicy.signal** that contains a built-in function capable of finding peaks in a set of data. However, in order to get a live reading of the IR signals, python needs to be synchronized with Arduino. Here is the code for the synchronization. 
 
 ## Usage Instructions
 
