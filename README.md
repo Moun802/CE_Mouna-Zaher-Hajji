@@ -1,46 +1,43 @@
 # Project Title
 
-This project 
+This project aims to produce a real-time heart beat and oxygen saturation monitor, with live visualization.
 
 ## Overview and Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Uses the Max30102 sensor and Arduino uno
+- Built with Python
+- Contains two live updating graphs
 
 ## Getting Started
 
 ### Prerequisites
 
-- List prerequisites here
-- For example: Arduino IDE, Python, etc.
+- Arduino IDE
+- Python
+- Python libraries: math, numpy, spicy, matplotlib, time
 
 ### Installation
 
 ```bash
 # Clone the repository. Replace <project> with repo name.
-git clone https://github.com/username/<project>.git
+git clone https://github.com/username/CE_Mouna-Zaher-Hajji.git
 
 # Navigate to project directory
-cd project
+cd CE_Mouna-Zaher-Hajji.
+```
 
-
-Include screenshots if applicable.
 
 ## Project Structure
 
-```
+```bash
 project/
 │
-├── docs/            # Additional documentation files if applicable
-├── tests/           # Test files if applicable
-├── .gitignore       # Git ignore file
+├── Code (BPM).md            # Code for BPM calculation
+├── Code (oxygen saturation).md     # Code for oxygen saturation calculation
+├── HARDWARE.md      #File for the hardware
 └── README.md        # This file
 ```
 
-## Contributing
-
-Instructions for how to contribute to this project if applicable when working on a team!
 
 ## License
 
@@ -48,6 +45,5 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-- Person or resource 1
-- Person or resource 2
-- Inspiration 
+- Joel Trudeau
+- Sparkfun's MAX30102 repo
